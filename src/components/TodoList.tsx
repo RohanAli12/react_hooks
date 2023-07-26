@@ -13,6 +13,7 @@ const getData = async () => {
       throw new Error("Failed to fetch data");
     }
     const result = await res.json()
+    // console.log(result)
     return result
   } catch (error) {
     console.log(error);

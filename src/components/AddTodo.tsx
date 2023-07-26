@@ -7,7 +7,7 @@ import { useRouter } from 'next/navigation';
 
 const AddTodo = () => {
   const [tasks, setTask] = useState<NewTodo | null>(null);
-  const {refresh} =  useRouter()
+  const { refresh } = useRouter()
   const handleSubmit = async () => {
     try {
       if (tasks) {
@@ -17,14 +17,15 @@ const AddTodo = () => {
             tasks: tasks.tasks,
           })
         })
+        refresh();
         console.log(res.ok);
-        refresh()
+
       }
-    } catch (error) {
+    } catch (error) { 
       console.log(error)
     }
   }
-  
+
   return (
     <div>
       <form className='w-full flex gap-x-3 '>
@@ -36,3 +37,5 @@ const AddTodo = () => {
 }
 
 export default AddTodo
+
+
